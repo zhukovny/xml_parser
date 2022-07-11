@@ -19,15 +19,15 @@ class CSVGenerator:
         pool = multiprocessing.Pool()
         results = pool.map(ZipParser.parse_zip, zip_file_paths)
 
-        contents_file_path = output_path + '/contents.csv'
+        contents_file_path = output_path + '/data.csv'
         objects_file_path = output_path + '/objects.csv'
-        with open(contents_file_path, 'w', newline='') as csv_content_file, open(
+        with open(contents_file_path, 'w', newline='') as csv_data_file, open(
             objects_file_path, 'w', newline=''
         ) as csv_objects_file:
-            csv_writer_1 = csv.writer(csv_content_file, delimiter='|')
-            csv_writer_2 = csv.writer(csv_objects_file, delimiter='|')
+            csv_data_writer = csv.writer(csv_data_file, delimiter='|')
+            csv_objects_writer = csv.writer(csv_objects_file, delimiter='|')
             for result in results:
-                for content in result:
-                    csv_writer_1.writerow([content.uid, content.level])
-                    for obj in content.objects:
-                        csv_writer_2.writerow([content.uid, obj.name])
+                for data in result:
+                    csv_data_writer.writerow([data.uid, data.level])
+                    for obj in data.objects:
+                        csv_objects_writer.writerow([data.uid, obj.name])

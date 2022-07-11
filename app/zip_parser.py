@@ -16,13 +16,13 @@ class ZipParser:
         xml_file_names = zip_file.namelist()
         for xml_file_name in xml_file_names:
             xml_file_content = zip_file.read(xml_file_name)
-            content = ZipParser._get_contents(xml_file_content)
+            content = ZipParser._get_data(xml_file_content)
             contents.append(content)
 
         return contents
 
     @staticmethod
-    def _get_contents(xml_file_content: bytes) -> Data:
+    def _get_data(xml_file_content: bytes) -> Data:
         root = ET.fromstring(xml_file_content)
         uid = UUID(root[0].attrib['value'])
         level = int(root[1].attrib['value'])
