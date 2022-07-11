@@ -3,8 +3,8 @@ from app import ZipGenerator
 
 ZIP_FILES_NUM = 50
 XML_FILES_NUM = 100
-ZIP_FILES_PATH = './temp/'
-CSV_FILES_PATH = './result/'
+ZIP_FILES_PATH = './temp'
+CSV_FILES_PATH = './result'
 
 
 if __name__ == '__main__':
@@ -13,5 +13,5 @@ if __name__ == '__main__':
     print('Zip files are generated.')
 
     print('Parse zip files and generate csv..')
-    CSVGenerator.generate_csv(zip_file_paths, './result/')
+    CSVGenerator.generate_csv(zip_file_paths, CSV_FILES_PATH)
     print('Done!')

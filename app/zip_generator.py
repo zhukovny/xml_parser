@@ -23,15 +23,15 @@ class ZipGenerator:
 
         zip_file_paths = []
         for _ in range(number_of_zip):
-            zip_file_name = generate_random_string() + ".zip"
-            zip_file_path = temp_dir_path + zip_file_name
+            zip_file_name = generate_random_string() + '.zip'
+            zip_file_path = temp_dir_path + '/' + zip_file_name
             zip_file = zipfile.ZipFile(zip_file_path, 'w')
 
             for _ in range(number_of_xml_in_zip):
-                xml_file_name = generate_random_string() + ".xml"
+                xml_file_name = generate_random_string() + '.xml'
                 xml_string = ZipGenerator._generate_xml_string()
-                xml_file_path = temp_dir_path + xml_file_name
-                with open(xml_file_path, "w") as f:
+                xml_file_path = temp_dir_path + '/' + xml_file_name
+                with open(xml_file_path, 'w') as f:
                     f.write(xml_string)
                     f.close()
                 zip_file.write(xml_file_path, xml_file_name)
