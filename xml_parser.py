@@ -1,6 +1,6 @@
-import uuid
-
-from generator import Generator
+from app.generator import Generator
 
 if __name__ == '__main__':
-    Generator().generate_zip_files()
+    print('Start zip generation...')
+    Generator().generate_zip_files(50, 100, './temp/')
+    print('Done.')
