@@ -1,5 +1,3 @@
-import time
-
 from app import CSVGenerator
 from app import ZipGenerator
 
