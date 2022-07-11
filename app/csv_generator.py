@@ -17,7 +17,7 @@ class CSVGenerator:
         os.mkdir(output_path)
 
         pool = multiprocessing.Pool()
-        results = pool.map(ZipParser.parse_zip, [zip_file_paths])
+        results = pool.map(ZipParser.parse_zip, zip_file_paths)
 
         contents_file_path = output_path + "contents.csv"
         objects_file_path = output_path + "objects.csv"
